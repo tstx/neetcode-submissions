@@ -1,0 +1,16 @@
+class Solution {
+public:
+    // n & (n - 1) löscht das niedrigste gesetzte Bit.
+    // Die Schleife läuft einmal pro 1-Bit, nicht einmal pro Bitposition.
+    // Beispiel n = 3 (0011):
+    //   0011 & 0010 = 0010
+    //   0010 & 0001 = 0000  → 2 Iterationen, Ergebnis 2
+    int hammingWeight(uint32_t n) {
+        int count = 0;
+        while (n) {
+            n &= n - 1;
+            ++count;
+        }
+        return count;
+    }
+};
